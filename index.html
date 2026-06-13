@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Descargar StrimGol - La App Oficial del Mundial en Full HD</title>
+    
+    <!-- Meta tags esenciales para SEO y redes sociales -->
+    <meta name="description" content="Descarga StrimGol APK oficial. Transmisión del Mundial en Full HD, partidos históricos y deportes en vivo. Rápida, ligera y gratuita.">
+    <link rel="canonical" href="https://tudominio.com/" /> <!-- Cambia esto por tu dominio real -->
+
+    <!-- Favicon (Icono de la pestaña) -->
+    <!-- Genera un favicon rápido y colócalo en la misma carpeta para que se vea profesional -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fuentes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CSS PROFESIONAL Y ENCAPSULADO
+           ========================================= */
+        
+        :root {
+            /* Paleta de Colores Mundial Premium */
+            --bg-dark: #060b11;
+            --bg-card: #0f1a24;
+            --gold: #d4af37;
+            --gold-hover: #e5c158;
+            --green-tech: #10b981;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.6);
+            
+            /* Fuentes y Espaciado */
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+            --container-width: 1100px;
+        }
+
+        /* Reset básico y estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Estilos de selección de texto */
+        ::selection {
+            background-color: rgba(212, 175, 55, 0.3);
+            color: var(--text-main);
+        }
+
+        /* Contenedor principal responsive */
+        .main-container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           HERO SECTION (Cabecera Principal)
+           ========================================= */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Efecto de red de fondo en el hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" opacity="0.04" stroke="%23d4af37"><path d="M 200,100 L 300,50 L 400,120 M 300,50 L 350,180 L 250,220 L 200,100 M 250,220 L 320,320 L 400,250 M 350,180 L 400,250" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo de la App */
+        .logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            user-select: none;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .logo-ball {
+            width: 45px;
+            height: 45px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Título Principal y Subtítulo */
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-weight: 400;
+        }
+
+        /* =========================================
+           DOWNLOAD BLOCK (Zona de Descarga Real)
+           ========================================= */
+        .download-block {
+            background-color: var(--bg-card);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 80px;
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* Columna de Datos técnicos (Izquierda) */
+        .dl-data-info {
+            text-align: left;
+        }
+
+        .dl-data-item {
+            margin-bottom: 15px;
+        }
+
+        .dl-data-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .dl-data-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .dl-data-value.size {
+            color: var(--green-tech);
+        }
+
+        /* Columna del Botón (Centro) */
+        .dl-action {
+            text-align: center;
+        }
+
+        /* El Botón de Descarga Principal */
+        .download-btn-main {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(90deg, var(--gold-hover) 0%, var(--gold) 100%);
+            color: var(--bg-dark);
+            padding: 20px 45px;
+            font-size: 18px;
+            font-weight: 800;
+            border-radius: 14px;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+
+        .download-btn-main:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .download-btn-main:active {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Columna de Plataformas y Requisitos (Derecha) */
+        .dl-platform-info {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .platform-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* =========================================
+           FEATURES SECTION (Funciones de la App)
+           ========================================= */
+        .features {
+            padding: 40px 0 100px;
+            text-align: center;
+        }
+
+        .features-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            letter-spacing: -1.5px;
+        }
+
+        /* Grid de funciones */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* Card de Función Individual */
+        .feature-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Icono de la función */
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 25px;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .feature-icon.hd { color: var(--green-tech); }
+        .feature-icon.history { color: var(--gold); }
+        .feature-icon.live { color: #f43f5e; /* Rojo Live */ }
+
+        .feature-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* =========================================
+           FOOTER (Pie de Página Profundo)
+           ========================================= */
+        .footer {
+            background-color: #04080d;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 15px;
+            user-select: none;
+        }
+
+        .footer-logo span { color: var(--text-main); }
+
+        .footer-text {
+            font-size: 14px;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN (Adaptación a Móviles)
+           ========================================= */
+        
+        /* Tablets y laptops pequeñas (hasta 1024px) */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 48px; }
+            .hero { padding: 80px 0 50px; }
+            .download-block { padding: 40px; gap: 30px; }
+            .features-grid { gap: 20px; }
+            .feature-card { padding: 30px; }
+        }
+
+        /* Móviles grandes (hasta 768px) */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 38px; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 18px; margin-bottom: 40px; }
+            
+            /* Reorganizamos el bloque de descarga a una columna */
+            .download-block {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .dl-data-info, .dl-platform-info { text-align: center; align-items: center; }
+            
+            .dl-platform-info { order: 3; } /* Pasamos las plataformas al final del bloque */
+            .dl-action { order: 2; margin: 10px 0; }
+            
+            .download-btn-main { width: 100%; padding: 18px 30px; }
+            
+            /* Reorganizamos la grid de funciones a una columna */
+            .features-grid { grid-template-columns: 1fr; }
+            .features-title { font-size: 32px; margin-bottom: 40px; }
+        }
+
+        /* Móviles pequeños (hasta 480px) */
+        @media (max-width: 480px) {
+            .hero { padding: 60px 0 40px; }
+            .logo { font-size: 36px; gap: 10px; }
+            .logo-ball { width: 35px; height: 35px; }
+            .hero-title { font-size: 32px; line-height: 1.2; }
+            .hero-subtitle { font-size: 16px; }
+            .dl-data-value { font-size: 20px; }
+            .feature-name { font-size: 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: HERO (Cabecera) -->
+    <header class="hero">
+        <div class="main-container hero-content">
+            <!-- Logo Oficial -->
+            <div class="logo">
+                Strim<span>Gol</span>
+                <div class="logo-ball">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#060b11" stroke-width="1.8" width="22" height="22">
+                        <circle cx="12" cy="12" r="11" fill="#fff"/>
+                        <path d="M 6,4 Q 12,10 12,12 M 18,4 Q 12,10 12,12 M 12,12 Q 12,24 12,24 M 2,15 Q 12,12 12,12 M 22,15 Q 12,12 12,12" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Título y Subtítulo Ganadores -->
+            <h1 class="hero-title">Tu Pase VIP para ver el<br><span>Mundial en Vivo</span></h1>
+            <p class="hero-subtitle">Descarga StrimGol APK oficial y disfruta de todos los partidos en Full HD, encuentros históricos grabados y deportes en vivo. Sin cortes, rápida y totalmente gratis.</p>
+        </div>
+    </header>
+
+    <!-- SECTION 2: ZONA DE DESCARGA REAL -->
+    <main class="main-container">
+        <div class="download-block">
+            
+            <!-- Datos técnicos aislados (Izquierda) -->
+            <div class="dl-data-info">
+                <div class="dl-data-item">
+                    <div class="dl-data-label">Tamaño del APK</div>
+                    <!-- Dato exacto proporcionado -->
+                    <div class="dl-data-value size">32.88 MB</div>
+                </div>
+                <div class="dl-data-item">
+                    <div class="dl-data-label">Versión Actual</div>
+                    <div class="dl-data-value">v1.0.5</div>
+                </div>
+            </div>
+
+            <!-- Botón de Descarga Real e Interactivo (Centro) -->
+            <div class="dl-action">
+                <!-- IMPORTANTE: Reemplaza '#' por el enlace real a tu archivo .apk (ej: href="descargas/strimgol.apk") -->
+                <a href="https://apk.e-droid.net/apk/app4079749-1f25yz.apk?v=2" class="download-btn-main" id="btnFinalDescarga" download>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    DESCARGAR APK OFICIAL
+                </a>
+            </div>
+
+            <!-- Plataformas y Requisitos (Derecha) -->
+            <div class="dl-platform-info">
+                <div class="platform-tag">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.523 15.3l1.816 3.146a.5.5 0 0 1-.866.5l-1.833-3.176a9.034 9.034 0 0 1-9.28 0l-1.833 3.176a.5.5 0 0 1-.866-.5L6.477 15.3c-2.828-2.433-4.477-5.947-4.477-9.8a9.006 9.006 0 0 1 1.077-4.276a.5.5 0 0 1 .866.5A7.994 7.994 0 0 0 3 6c0 3.398 1.488 6.46 3.86 8.577a9.022 9.022 0 0 1 10.28 0A7.994 7.994 0 0 0 21 6c0-1.425-.373-2.766-1.023-3.924a.5.5 0 0 1 .866-.5A9.006 9.006 0 0 1 22 5.5c0 3.853-1.649 7.367-4.477 9.8zM7 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                    Android 7.0+ (Nougat)
+                </div>
+                <div class="platform-tag">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Verificado Seguro (No Virus)
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION 3: FUNCIONES DE LA APP -->
+        <section class="features">
+            <h2 class="features-title">¿Qué te ofrece StrimGol?</h2>
+            
+            <div class="features-grid">
+                
+                <!-- Función 1: Mundial HD (Dato proporcionado) -->
+                <article class="feature-card">
+                    <div class="feature-icon hd">🏆</div>
+                    <h3 class="feature-name">Mundial en Full HD</h3>
+                    <p class="feature-desc">Transmisión oficial de todos los partidos de la Copa del Mundo en directo con la máxima calidad y servidores de alta velocidad.</p>
+                </article>
+
+                <!-- Función 2: Históricos (Dato proporcionado) -->
+                <article class="feature-card">
+                    <div class="feature-icon history">⚽</div>
+                    <h3 class="feature-name">Partidos Históricos</h3>
+                    <p class="feature-desc">Revive encuentros legendarios antiguos que tenemos grabados y optimizados para reproducir al instante en la app.</p>
+                </article>
+
+                <!-- Función 3: Deportes en línea (Dato proporcionado) -->
+                <article class="feature-card">
+                    <div class="feature-icon live">📡</div>
+                    <h3 class="feature-name">Deportes en Línea</h3>
+                    <p class="feature-desc">Accede a una amplia variedad de eventos deportivos nacionales e internacionales transmitidos en vivo.</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="main-container">
+            <div class="footer-logo">Strim<span>Gol</span></div>
+            <p class="footer-text">&copy; 2023 StrimGol App. Todos los derechos reservados. Esta aplicación no está afiliada oficialmente con la FIFA. Las transmisiones dependen de la disponibilidad del servidor.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Pequeño script de cortesía para asegurar la interacción
+        document.getElementById('btnFinalDescarga').addEventListener('click', function(e) {
+            // Si el href sigue siendo '#', avisamos profesionalmente.
+            if(this.getAttribute('href') === '#') {
+                e.preventDefault();
+                alert('¡Gracias por elegir StrimGol! El administrador aún no ha subido el archivo APK real. Vuelve a intentarlo en unos minutos.');
+            }
+        });
+    </script>
+</body>
+</html>
