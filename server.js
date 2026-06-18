@@ -6,57 +6,74 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-// Función interna para extraer el enlace m3u8 original
-async function extractM3u8() {
+// Configuramos las cabeceras estándar para engañar a los servidores
+const requestHeaders = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3'
+};
+
+// Función auxiliar para extraer el m3u8 de una URL específica
+async function tryExtract(url, referer) {
     try {
-        const response = await axios.get('https://streamtpday1.xyz/global2.php?stream=dsports', {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Referer': 'https://streamtpday1.xyz/'
-            }
+        const response = await axios.get(url, {
+            headers: { ...requestHeaders, 'Referer': referer },
+            timeout: 4000 // Si tarda más de 4 segundos, pasamos a la siguiente señal
         });
+        
         const html = response.data;
-        const regex = /(https?:.*?\.m3u8.*?)"/i;
+        // Expresión regular mejorada para capturar URLs con o sin comillas finales
+        const regex = /(https?:[^"'\s]*?\.m3u8[^"'\s]*)/i;
         const match = html.match(regex);
+        
         return match ? match[1] : null;
     } catch (e) {
-        return null;
+        return null; // Si da error (bloqueo por IP, 403, etc.), devuelve null
     }
 }
 
-// NUEVA RUTA: Hace de túnel/proxy para evadir el bloqueo de CORS del navegador
+// Ruta principal tipo "túnel" que procesa las 3 opciones en orden
 app.get('/live.m3u8', async (req, res) => {
-    const targetUrl = await extractM3u8();
-    
+    let targetUrl = null;
+
+    // INTENTO 1: DSports (Flujo principal)
+    console.log("Intentando Señal 1: DSports...");
+    targetUrl = await tryExtract('https://streamtpday1.xyz/global2.php?stream=dsports', 'https://streamtpday1.xyz/');
+
+    // INTENTO 2: Si falló el 1, intenta Deportes Plus
     if (!targetUrl) {
-        return res.status(404).send('No se pudo obtener la señal de origen.');
+        console.log("Señal 1 falló. Intentando Señal 2: Deportes Plus...");
+        targetUrl = await tryExtract('https://playvi.click/deportesplus.php', 'https://playvi.click/');
     }
 
+    // INTENTO 3: Si falló el 2, intenta Canal 8
+    if (!targetUrl) {
+        console.log("Señal 2 falló. Intentando Señal 3: Canal 8 de respaldo...");
+        targetUrl = await tryExtract('https://playvi.click/canal8.php', 'https://playvi.click/');
+    }
+
+    // Si las tres opciones fallaron
+    if (!targetUrl) {
+        return res.status(404).send('#EXTM3U\n#EXT-X-ERROR: Todas las señales de origen se encuentran caídas o protegidas.');
+    }
+
+    // Si logró conseguir alguna, hacemos el puente Proxy para romper el CORS
     try {
-        // Render solicita el archivo de video usando las cabeceras simuladas
         const streamRes = await axios.get(targetUrl, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Referer': 'https://streamtpday1.xyz/'
+            headers: { 
+                ...requestHeaders,
+                'Referer': targetUrl.includes('streamtpday1') ? 'https://streamtpday1.xyz/' : 'https://playvi.click/'
             },
             responseType: 'text'
         });
 
-        // Le devolvemos el contenido del m3u8 directamente a tu reproductor burlando el CORS
         res.setHeader('Content-Type', 'application/x-mpegURL');
         res.send(streamRes.data);
     } catch (error) {
-        res.status(500).send('Error al transmitir el puente de video.');
+        res.status(500).send('#EXTM3U\n#EXT-X-ERROR: Error al transmitir los fragmentos de video.');
     }
 });
 
-// Mantenemos la ruta anterior por compatibilidad
-app.get('/stream', async (req, res) => {
-    const url = await extractM3u8();
-    if (url) res.json({ stream_url: url });
-    else res.status(404).json({ error: "No encontrado" });
-});
-
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
+    console.log(`Servidor de contingencia corriendo en puerto ${PORT}`);
 });
